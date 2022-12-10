@@ -11,33 +11,35 @@ sys.setrecursionlimit(20000)
 def plotShow():
 
     sorts = [
-        # {
-        #     "name": "Bubble Sort",
-        #     "sort": lambda arr: bubbleSort(arr, len(arr))
-        # },
+        {
+            "name": "Bubble Sort",
+            "sort": lambda arr: bubbleSort(arr)
+        },
         # {
         #     "name": "Insertion Sort",
         #     "sort": lambda arr: insertionSort(arr)
         # },
+        # {
+        #     "name": "Quick Sort",
+        #     "sort": lambda arr: quickSort(arr, 0, len(arr) - 1)
+        # },
         {
-            "name": "Quick Sort",
-            "sort": lambda arr: quickSort(arr, 0, len(arr) - 1)
+            "name": "Bubble Sort Recursive",
+            "sort": lambda arr: bubbleSortRecursive(arr)
         },
         # {
-        #     "name": "Bubble Sort Recursive",
-        #     "sort": lambda arr: bubbleSortRecursive(arr)
+        #     "name": "Insertion Sort Recursive",
+        #     "sort": lambda arr: insertionSortRecursive(arr, len(arr))
         # },
         # {
-        #     "name": "Insertion Sort Recursive",
-        #     "sort": lambda arr: insertionSortRecursive(arr)
-        # },
-        {
-            "name": "Quick Sort Recursive",
-            "sort": lambda arr: quickSortRecursive(arr, 0, len(arr) - 1)
-        }
+        #     "name": "Quick Sort Recursive",
+        #     "sort": lambda arr: quickSortRecursive(arr, 0, len(arr) - 1)
+        # }
     ]
 
-    elements = np.array([i*1000 for i in range(1, 10)])
+    max = 9
+
+    elements = np.array([i*1000 for i in range(1, max)])
 
     plt.xlabel('Array Length')
     plt.ylabel('Time Complexity')
@@ -45,7 +47,7 @@ def plotShow():
     for sort in sorts:
         times = list()
         start_all = time.time()
-        for i in range(1, 10):
+        for i in range(1, max):
             start = time.time()
             a = np.random.randint(1000, size = i * 1000)
             sort["sort"](a)
