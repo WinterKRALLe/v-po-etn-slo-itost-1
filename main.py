@@ -3,23 +3,37 @@ from insertsort import insertionSort, insertionSortRecursive
 from bubblesort import bubbleSort, bubbleSortRecursive
 from quicksort import quickSort, quickSortRecursive
 import numpy as np
-import time
+import time, sys
+
+sys.setrecursionlimit(20000)
 
 
 def plotShow():
 
     sorts = [
-        {
-            "name": "Bubble Sort",
-            "sort": lambda arr: bubbleSort(arr, len(arr))
-        },
-        {
-            "name": "Insertion Sort",
-            "sort": lambda arr: insertionSort(arr, len(arr))
-        },
+        # {
+        #     "name": "Bubble Sort",
+        #     "sort": lambda arr: bubbleSort(arr, len(arr))
+        # },
+        # {
+        #     "name": "Insertion Sort",
+        #     "sort": lambda arr: insertionSort(arr)
+        # },
         {
             "name": "Quick Sort",
             "sort": lambda arr: quickSort(arr, 0, len(arr) - 1)
+        },
+        # {
+        #     "name": "Bubble Sort Recursive",
+        #     "sort": lambda arr: bubbleSortRecursive(arr)
+        # },
+        # {
+        #     "name": "Insertion Sort Recursive",
+        #     "sort": lambda arr: insertionSortRecursive(arr)
+        # },
+        {
+            "name": "Quick Sort Recursive",
+            "sort": lambda arr: quickSortRecursive(arr, 0, len(arr) - 1)
         }
     ]
 

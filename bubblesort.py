@@ -8,13 +8,15 @@ def bubbleSort(arr, length):
 
 ##################################
 
-def bubbleSortRecursive(arr, length):
+def bubbleSortRecursive(arr):
     count = 0
-    for idx in range(length-1):
-        if arr[idx] > arr[idx + 1]:
-            arr[idx],arr[idx + 1] = arr[idx + 1],arr[idx]
+    for i in range(len(arr) - 1):
+        if arr[i] > arr[i + 1]:
+            # Swap the two elements
+            arr[i], arr[i + 1] = arr[i + 1], arr[i]
             count += 1
-    if count == 0:
-        return arr
-    else:
+
+    if count != 0:
         return bubbleSortRecursive(arr)
+
+    return arr

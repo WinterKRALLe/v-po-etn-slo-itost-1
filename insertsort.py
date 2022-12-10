@@ -1,5 +1,5 @@
-def insertionSort(arr, length):
-    for i in range(1, length):
+def insertionSort(arr):
+    for i in range(1, len(arr)):
         key = arr[i]
         j = i - 1
         while j >= 0 and key < arr[j]:
@@ -9,15 +9,16 @@ def insertionSort(arr, length):
 
 #############################################
 
-def insertionSortRecursive(arr, length):
-    if n <= 1:
-        return
-    insertionSortRecursive(arr, length - 1)
-    last = arr[n - 1]
-    j = n - 2
+def insertionSortRecursive(arr):
+    if len(arr) == 1:
+        return arr
 
-    while (j >= 0 and arr[j] > last):
-        arr[j + 1] = arr[j]
-        j = j - 1
+    key = arr[0]
 
-    arr[j + 1] = last
+    sorted_array = insertionSortRecursive(arr[1:])
+
+    for i in range(len(sorted_array)):
+        if key < sorted_array[i]:
+            return sorted_array[:i] + [key] + sorted_array[i:]
+
+    return sorted_array + [key]
